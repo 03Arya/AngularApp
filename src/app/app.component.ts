@@ -1,13 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true
 })
 export class AppComponent {
-  title = 'hello-angular';
+  count = 0;
+  clickPower = 1;
+
+  buyClickPower() {
+    if (this.count >= 10) {
+      this.count -= 10;
+      this.clickPower++;
+    }
+  }
+
+  buyClickPower10() {
+    if (this.count >= 100) {
+      this.count -= 100;
+      this.clickPower += 10;
+    }
+  }
+
+  click() {
+    this.count += this.clickPower;
+    
+  }
+  click10() {
+    this.count += 10; + this.clickPower;
+  }
+  click100() {
+    this.count += 100; +  this.clickPower;
+  }
+  click1000() {
+    this.count += 1000; + this.clickPower;
+  }
 }
