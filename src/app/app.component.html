@@ -1,24 +1,23 @@
 <main>
-  <div class="grid">
-    <div>
-      <h1>Clicks {{ count }}</h1>
-      <h1>Click Power {{ clickPower }}</h1>
+  <div class="grid grid-cols-3 bg-zinc-800">
+    <div class="mx-auto col-start-1 col-end-3 w-full">
+      <div class="grid grid-cols-2">
+        <h1 class="font-bold text-white text-center">$ {{ count }}</h1>
+        <h1 class="font-bold text-white text-center">Click Power {{ clickPower }}</h1>
+      </div>
+      <button class="ml-32" (click)="click()">
+        <img src="../assets/images/pick.jpg" alt="" width="100px" height="100px">
+      </button>
     </div>
-    <section class="col-start-3 h-screen bg-slate-900">
+    <section class="h-screen col-start-3 bg-slate-900">
       <h2 class="text-center font-bold text-white">Upgrades</h2>
       <div class="grid grid-rows-2 w-60 max-w-60 gap-1 mx-auto">
+
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="click()">+1</button>
+          (click)="buyClickPower()" [hidden]="count<10">add click power cost 10</button>
+
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="click10()" [hidden]="count < 10">+10</button>
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="click100()" [hidden]="count < 100">+100</button>
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="click1000()" [hidden]="count < 10000">+1000</button>
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="buyClickPower()">add click power cost 10</button>
-          <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-32 w-32 mx-auto"
-          (click)="buyClickPower10()">add click power cost 100</button>
+          (click)="buyClickPower10()" [hidden]="count<100">add click power cost 100</button>
       </div>
     </section>
   </div>

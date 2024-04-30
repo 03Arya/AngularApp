@@ -28,13 +28,5 @@ export class AppComponent {
     this.count += this.clickPower;
     
   }
-  click10() {
-    this.count += 10; + this.clickPower;
-  }
-  click100() {
-    this.count += 100; +  this.clickPower;
-  }
-  click1000() {
-    this.count += 1000; + this.clickPower;
-  }
+
 }
