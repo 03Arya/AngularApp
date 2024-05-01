@@ -7,8 +7,9 @@
 
       <div class="grid grid-cols-1">
         <h1 class="font-bold text-white text-center">$ {{ count }}</h1>
-        <h1 class="font-bold text-white text-center">Click Power {{ clickPower }}</h1>
-        <button class="mx-auto mt-20 scale w-52 h-52 max-w-52 max-h-52" (click)="click()">
+        <h1 [style.color]="powerUpActive? 'green' : 'white'" class="font-bold text-white text-center">Click Power {{
+          clickPower }}</h1>
+        <button class="mx-auto mt-20 scale w-52 h-52 max-w-52 max-h-52" (click)="click()" [class.animate]="animate">
           <img src="../assets/images/pick.jpg" alt="">
         </button>
       </div>
@@ -18,17 +19,21 @@
       <h2 class="text-center font-bold text-white">Upgrades</h2>
       <div class="grid grid-rows-2 gap-1 mx-auto">
 
-          <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
-            (click)="buyClickPower()" [hidden]="count<10">+1 click power (cost $10)</button>
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+          (click)="buyPowerUp()" [hidden]="count < 100 || powerUpActive">Buy Power Up (Cost: 100)</button>
 
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
-          (click)="buyClickPower10()" [hidden]="count<100">+10 click power (cost $100)</button>
+          (click)="buyClickPower()" [hidden]="count<10">+1 click power (Cost: $10)</button>
 
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
-          (click)="buyClickPower100()" [hidden]="count<10000">+100 click power (cost $10000)</button>
+          (click)="buyClickPower10()" [hidden]="count<100">+10 click power (Cost: $100)</button>
 
-          <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
-          (click)="buyClickPower1000()" [hidden]="count<100000">+1000 click power (cost $100000)</button>
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+          (click)="buyClickPower100()" [hidden]="count<10000">+100 click power (Cost: $10000)</button>
+
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+          (click)="buyClickPower1000()" [hidden]="count<100000">+1000 click power (Cost: $100000)</button>
+
       </div>
     </section>
   </div>

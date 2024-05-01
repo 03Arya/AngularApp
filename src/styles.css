@@ -17,3 +17,16 @@
   img {
     animation: scale 2s infinite ease-in-out;
   }
+
+  @keyframes click {
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate {
+    animation: click 0.2s;
+  }
