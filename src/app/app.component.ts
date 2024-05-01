@@ -24,9 +24,15 @@ export class AppComponent {
     }
   }
 
-  click() {
-    this.count += this.clickPower;
-    
+  buyClickPower100() {
+    if (this.count >= 100) {
+      this.count -= 100;
+      this.clickPower += 100;
+    }
   }
 
-}
+  click() {
+    this.count += this.clickPower;
+    }
+  }
+
