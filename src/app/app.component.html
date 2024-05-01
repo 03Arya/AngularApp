@@ -19,19 +19,19 @@
       <h2 class="text-center font-bold text-white">Upgrades</h2>
       <div class="grid grid-rows-2 gap-1 mx-auto">
 
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyPowerUp()" [hidden]="count < 100 || powerUpActive">Buy Power Up (Cost: 100)</button>
 
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyClickPower()" [hidden]="count<10">+1 click power (Cost: $10)</button>
 
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyClickPower10()" [hidden]="count<100">+10 click power (Cost: $100)</button>
 
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyClickPower100()" [hidden]="count<10000">+100 click power (Cost: $10000)</button>
 
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyClickPower1000()" [hidden]="count<100000">+1000 click power (Cost: $100000)</button>
 
       </div>
