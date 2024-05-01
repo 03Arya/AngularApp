@@ -25,7 +25,10 @@
           (click)="buyClickPower10()" [hidden]="count<100">+10 click power (cost $100)</button>
 
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
-          (click)="buyClickPower100()" [hidden]="count<1000">+100 click power (cost $1000)</button>
+          (click)="buyClickPower100()" [hidden]="count<10000">+100 click power (cost $10000)</button>
+
+          <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 w-40 mx-auto"
+          (click)="buyClickPower1000()" [hidden]="count<100000">+1000 click power (cost $100000)</button>
       </div>
     </section>
   </div>

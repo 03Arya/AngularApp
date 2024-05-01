@@ -11,28 +11,31 @@ export class AppComponent {
   clickPower = 1;
 
   buyClickPower() {
-    if (this.count >= 10) {
-      this.count -= 10;
-      this.clickPower++;
-    }
+    this.count -= 10;
+    this.clickPower++;
+
   }
 
   buyClickPower10() {
-    if (this.count >= 100) {
-      this.count -= 100;
-      this.clickPower += 10;
-    }
+    this.count -= 100;
+    this.clickPower += 10;
+
   }
 
   buyClickPower100() {
-    if (this.count >= 100) {
-      this.count -= 100;
-      this.clickPower += 100;
-    }
+    this.count -= 10000;
+    this.clickPower += 100;
+
+  }
+
+  buyClickPower1000() {
+    this.count -= 100000;
+    this.clickPower += 1000;
+
   }
 
   click() {
     this.count += this.clickPower;
-    }
   }
+}
 
