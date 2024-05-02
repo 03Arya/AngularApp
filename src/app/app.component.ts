@@ -16,7 +16,7 @@ export class AppComponent {
   autoClickerInterval: any;
   tier = 0;
   progress = 0;
-  tierImages = ['../assets/images/pickaxes/wood.jpg', '../assets/images/pickaxes/stone.jpg', '../assets/images/pickaxes/iron.jpg', '../assets/images/pickaxes/gold.jpg', '../assets/images/pickaxes/diamond.jpg'];
+  tierImages = ['../assets/images/pickaxes/wood.jpg', '../assets/images/pickaxes/stone.jpg', '../assets/images/pickaxes/iron.jpg', '../assets/images/pickaxes/gold.jpg', '../assets/images/pickaxes/diamond.jpg', '../assets/images/pickaxes/netherite.jpg'];
   tierCosts = [500, 5000, 10000, 100000, 1000000];
   autoClickerIntervals = [1000, 900, 800, 700, 600]; // in milliseconds
 
