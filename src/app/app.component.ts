@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+//Angular component that handles the game logic
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,10 +8,12 @@ import { Component } from '@angular/core';
   standalone: true
 })
 
+//Class that handles the game logic
 export class AppComponent {
   count = 0;
   clickPower = 1;
   powerUpActive = false;
+  powerUpDuration = 10000;
   animate = false;
   autoClickerActive = false;
   autoClickerInterval: any;
@@ -20,6 +23,7 @@ export class AppComponent {
   tierCosts = [500, 5000, 10000, 100000, 1000000];
   autoClickerIntervals = [1000, 900, 800, 700, 600]; // in milliseconds
 
+  //Functions that handle the game logic
   upgradeTier() {
     if (this.count >= this.tierCosts[this.tier]) {
       this.count -= this.tierCosts[this.tier];
@@ -62,37 +66,44 @@ export class AppComponent {
       this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
       this.powerUpActive = true;
       this.clickPower *= 2;
+      this.powerUpDuration = 10; // set the initial duration to 10 seconds
   
-      setTimeout(() => {
-        this.powerUpActive = false;
-        this.clickPower /= 2;
-      }, 10000); // power up lasts for 10 seconds
+      const intervalId = setInterval(() => {
+        this.powerUpDuration--;
+  
+        if (this.powerUpDuration === 0) {
+          this.powerUpActive = false;
+          this.clickPower /= 2;
+          clearInterval(intervalId);
+        }
+      }, 1000); // decrease the duration every second
     }
   }
+  //Clickpower functions
 
-buyClickPower() {
-  this.count -= 10;
-  this.clickPower++;
-  this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
-}
+  buyClickPower() {
+    this.count -= 10;
+    this.clickPower++;
+    this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
+  }
 
-buyClickPower10() {
-  this.count -= 100;
-  this.clickPower += 10;
-  this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
-}
+  buyClickPower10() {
+    this.count -= 1000;
+    this.clickPower += 10;
+    this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
+  }
 
-buyClickPower100() {
-  this.count -= 10000;
-  this.clickPower += 100;
-  this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
-}
+  buyClickPower100() {
+    this.count -= 10000;
+    this.clickPower += 100;
+    this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
+  }
 
-buyClickPower1000() {
-  this.count -= 100000;
-  this.clickPower += 1000;
-  this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
-}
+  buyClickPower1000() {
+    this.count -= 100000;
+    this.clickPower += 1000;
+    this.progress = (this.count / this.tierCosts[this.tier]) * 100; // update progress
+  }
 
   click() {
     this.animate = true;

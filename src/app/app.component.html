@@ -5,23 +5,29 @@
       <div class="progress" [style.width.%]="progress"></div>
     </div>
   </header>
+
   <div class="grid grid-cols-4 bg-zinc-800">
     <div class="mx-auto col-start-2 col-end-3 w-full">
-
       <div class="grid grid-cols-1">
         <h1 class="font-bold text-white text-center">$ {{ count }}</h1>
         <h1 [style.color]="powerUpActive? 'green' : 'white'" class="font-bold text-white text-center">Click Power {{
           clickPower }}</h1>
+          <p class="font-bold text-white text-center text-xs" [hidden]="!powerUpActive">powerUpDuration: {{powerUpDuration}}</p>
         <button class="mx-auto mt-20 scale max-w-52 max-h-52" (click)="click()" [class.animate]="animate">
           <img [src]="tierImages[tier]" width="200px" height="200px" alt="">
         </button>
-        
-
-        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
-          (click)="upgradeTier()" [hidden]="count < tierCosts[tier]">Upgrade to next tier (Cost: {{ tierCosts[tier] }})</button>
       </div>
-
     </div>
+    <section>
+      <h2 class="text-center font-bold text-white pb-2">Tier Upgrades</h2>
+      <p class="text-center font-bold text-white pb-2">Tier {{tier}}</p>
+      <div class="grid grid-rows-2 gap-1 mx-auto">
+        <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
+          (click)="upgradeTier()" [hidden]="count < tierCosts[tier]">Upgrade to next tier (Cost: {{
+          tierCosts[tier] }})</button>
+      </div>
+    </section>
+
     <section class="h-screen col-start-4 bg-slate-900">
       <h2 class="text-center font-bold text-white pb-2">Upgrades</h2>
       <div class="grid grid-rows-2 gap-1 mx-auto">
@@ -40,7 +46,7 @@
           (click)="buyClickPower()" [hidden]="count<10">+1 click power (Cost: $10)</button>
 
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
-          (click)="buyClickPower10()" [hidden]="count<100">+10 click power (Cost: $100)</button>
+          (click)="buyClickPower10()" [hidden]="count<1000">+10 click power (Cost: $1000)</button>
 
         <button class="px-2 font-medium border-cyan-800 border-2 bg-cyan-600 rounded-md max-w-40 mx-auto"
           (click)="buyClickPower100()" [hidden]="count<10000">+100 click power (Cost: $10000)</button>
